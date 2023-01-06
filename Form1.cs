@@ -32,17 +32,14 @@ namespace ParticleSystem_KulakovDA_ISTb_21_1
             using (var g = Graphics.FromImage(picDisplay.Image))
             {
                 g.Clear(Color.White);
-                // рисую на изображении сколько насчитал
-                g.DrawString(
-                    count.ToString(), // значения счетчика в виде строки
-                    new Font("Arial", 12), // шрифт
-                    new SolidBrush(Color.Black), // цвет
-                    new PointF
-                    { // по центру экрана
-                        X = picDisplay.Image.Width / 2,
-                        Y = picDisplay.Image.Height / 2
-                    }
-                );
+                /*
+                 g.DrawString(count.ToString(), new Font("Arial", 12), new SolidBrush(Color.Black), new PointF{X = picDisplay.Image.Width / 2, Y = picDisplay.Image.Height / 2});
+                 Данная строка выводит значения таймера в центре экрана
+                */
+                foreach (var particle in particles)
+                {
+                    particle.Draw(g);
+                }
             }
 
             picDisplay.Invalidate(); //обновление дисплея
