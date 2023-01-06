@@ -18,6 +18,8 @@ namespace ParticleSystem_KulakovDA_ISTb_21_1
         // добавили генератор случайных чисел
         public static Random rand = new Random();
 
+        public float Life; // запас здоровья частицы
+
         // конструктор по умолчанию будет создавать кастомную частицу
         public Particle()
         {
@@ -25,18 +27,24 @@ namespace ParticleSystem_KulakovDA_ISTb_21_1
             Direction = rand.Next(360);
             Speed = 1 + rand.Next(10);
             Radius = 2 + rand.Next(10);
+            Life = 20 + rand.Next(100);
         }
 
         public void Draw(Graphics g)
         {
-            // создали кисть для рисования
-            var b = new SolidBrush(Color.Black);
+            // рассчитываем коэффициент прозрачности по шкале от 0 до 1.0
+            float k = Math.Min(1f, Life / 100);
+            // рассчитываем значение альфа канала в шкале от 0 до 255
+            // по аналогии с RGB, он используется для задания прозрачности
+            int alpha = (int)(k * 255);
 
-            // нарисовали залитый кружок радиусом Radius с центром в X, Y
+            // создаем цвет из уже существующего, но привязываем к нему еще и значение альфа канала
+            var color = Color.FromArgb(alpha, Color.Black);
+            var b = new SolidBrush(color);
+
+            // остальное все так же
             g.FillEllipse(b, X - Radius, Y - Radius, Radius * 2, Radius * 2);
 
-            // удалили кисть из памяти, вообще сборщик мусора рано или поздно это сам сделает
-            // но документация рекомендует делать это самому
             b.Dispose();
         }
     }
