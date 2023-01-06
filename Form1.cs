@@ -1,4 +1,5 @@
 using System.Diagnostics.Metrics;
+using static ParticleSystem_KulakovDA_ISTb_21_1.Particle;
 
 namespace ParticleSystem_KulakovDA_ISTb_21_1
 {
@@ -33,33 +34,39 @@ namespace ParticleSystem_KulakovDA_ISTb_21_1
                 particle.Life -= 1;
                 if (particle.Life < 0)
                 {
+                    particle.Life = 20 + Particle.rand.Next(100);
                     particle.X = MousePositionX;
                     particle.Y = MousePositionY;
-                    particle.Life = 20 + Particle.rand.Next(100); // это не трогаем
-                                                                  // новое начальное расположение частицы — это то, куда указывает курсор
-                    particle.Direction = Particle.rand.Next(360);
-                    particle.Speed = 1 + Particle.rand.Next(10);
+                    // cброс состояния частицы
+                    var direction = (double)Particle.rand.Next(360);
+                    var speed = 1 + Particle.rand.Next(10);
+
+                    particle.SpeedX = (float)(Math.Cos(direction / 180 * Math.PI) * speed);
+                    particle.SpeedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed);
                     particle.Radius = 2 + Particle.rand.Next(10);
                 }
-                else
+                else // пересчет положения частицы в пространстве
                 {
-                    var directionInRadians = particle.Direction / 180 * Math.PI;
-                    particle.X += (float)(particle.Speed * Math.Cos(directionInRadians));
-                    particle.Y -= (float)(particle.Speed * Math.Sin(directionInRadians));
+                    particle.X += particle.SpeedX;
+                    particle.Y += particle.SpeedY;
                 }
             }
             for (var i = 0; i < 10; ++i)
             {
-                if (particles.Count < 500) // пока частиц меньше 500 генерируем новые
+                if (particles.Count < 500)
                 {
-                    var particle = new Particle();
+                    // а у тут уже наш новый класс используем
+                    var particle = new ParticleColorful();
+                    // ну и цвета меняем
+                    particle.FromColor = Color.Yellow;
+                    particle.ToColor = Color.FromArgb(0, Color.Magenta);
                     particle.X = MousePositionX;
                     particle.Y = MousePositionY;
                     particles.Add(particle);
                 }
                 else
                 {
-                    break; // а если частиц уже 500 штук, то ничего не генерирую
+                    break;
                 }
             }
         }
@@ -80,7 +87,7 @@ namespace ParticleSystem_KulakovDA_ISTb_21_1
 
             using (var g = Graphics.FromImage(picDisplay.Image))
             {
-                g.Clear(Color.White);
+                g.Clear(Color.Black);
                 Render(g); // рендерим систему
             }
 
