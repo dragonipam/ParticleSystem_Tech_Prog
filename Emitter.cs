@@ -66,19 +66,23 @@ namespace ParticleSystem_KulakovDA_ISTb_21_1
         public void UpdateState()
         {
             int particlesToCreate = ParticlesPerTick;
+
             foreach (var particle in particles)
             {
                 if (particle.Life < 0)
                 {
                     if (particlesToCreate > 0)
                     {
-                        /* у нас как сброс частицы равносилен созданию частицы */
-                        particlesToCreate -= 1; // поэтому уменьшаем счётчик созданных частиц на 1
+                        particlesToCreate -= 1;
                         ResetParticle(particle);
                     }
                 }
                 else
                 {
+                    particle.X += particle.SpeedX;
+                    particle.Y += particle.SpeedY;
+
+                    particle.Life -= 1;
                     foreach (var point in impactPoints)
                     {
                         point.ImpactParticle(particle);
@@ -86,9 +90,6 @@ namespace ParticleSystem_KulakovDA_ISTb_21_1
 
                     particle.SpeedX += GravitationX;
                     particle.SpeedY += GravitationY;
-
-                    particle.X += particle.SpeedX;
-                    particle.Y += particle.SpeedY;
                 }
             }
             while (particlesToCreate >= 1)

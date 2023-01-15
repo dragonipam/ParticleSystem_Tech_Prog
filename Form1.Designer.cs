@@ -34,15 +34,25 @@
             this.tbDirection = new System.Windows.Forms.TrackBar();
             this.lblDirection = new System.Windows.Forms.Label();
             this.lblDirection1 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblGraviton = new System.Windows.Forms.Label();
+            this.tbGraviton1 = new System.Windows.Forms.TrackBar();
+            this.tbGraviton2 = new System.Windows.Forms.TrackBar();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDirection)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbGraviton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbGraviton2)).BeginInit();
             this.SuspendLayout();
             // 
             // picDisplay
             // 
-            this.picDisplay.Location = new System.Drawing.Point(12, 12);
+            this.picDisplay.Location = new System.Drawing.Point(10, 9);
+            this.picDisplay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picDisplay.Name = "picDisplay";
-            this.picDisplay.Size = new System.Drawing.Size(776, 376);
+            this.picDisplay.Size = new System.Drawing.Size(679, 282);
             this.picDisplay.TabIndex = 0;
             this.picDisplay.TabStop = false;
             this.picDisplay.Click += new System.EventHandler(this.picDisplay_Click);
@@ -56,45 +66,121 @@
             // 
             // tbDirection
             // 
-            this.tbDirection.Location = new System.Drawing.Point(12, 394);
-            this.tbDirection.Maximum = 359;
+            this.tbDirection.Location = new System.Drawing.Point(10, 312);
+            this.tbDirection.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbDirection.Maximum = 360;
             this.tbDirection.Name = "tbDirection";
-            this.tbDirection.Size = new System.Drawing.Size(208, 56);
+            this.tbDirection.Size = new System.Drawing.Size(182, 45);
             this.tbDirection.TabIndex = 1;
             this.tbDirection.Scroll += new System.EventHandler(this.tbDirection_Scroll);
             // 
             // lblDirection
             // 
             this.lblDirection.AutoSize = true;
-            this.lblDirection.Location = new System.Drawing.Point(198, 393);
+            this.lblDirection.Location = new System.Drawing.Point(173, 295);
             this.lblDirection.Name = "lblDirection";
-            this.lblDirection.Size = new System.Drawing.Size(0, 20);
+            this.lblDirection.Size = new System.Drawing.Size(0, 15);
             this.lblDirection.TabIndex = 2;
             // 
             // lblDirection1
             // 
             this.lblDirection1.AutoSize = true;
-            this.lblDirection1.Location = new System.Drawing.Point(215, 394);
+            this.lblDirection1.Location = new System.Drawing.Point(188, 312);
             this.lblDirection1.Name = "lblDirection1";
-            this.lblDirection1.Size = new System.Drawing.Size(50, 20);
+            this.lblDirection1.Size = new System.Drawing.Size(18, 15);
             this.lblDirection1.TabIndex = 3;
-            this.lblDirection1.Text = "label1";
+            this.lblDirection1.Text = "0*";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 296);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 15);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Направление";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(214, 293);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 15);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Сила 1 точки";
+            // 
+            // lblGraviton
+            // 
+            this.lblGraviton.AutoSize = true;
+            this.lblGraviton.Location = new System.Drawing.Point(312, 312);
+            this.lblGraviton.Name = "lblGraviton";
+            this.lblGraviton.Size = new System.Drawing.Size(13, 15);
+            this.lblGraviton.TabIndex = 6;
+            this.lblGraviton.Text = "0";
+            // 
+            // tbGraviton1
+            // 
+            this.tbGraviton1.Location = new System.Drawing.Point(212, 309);
+            this.tbGraviton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbGraviton1.Maximum = 100;
+            this.tbGraviton1.Name = "tbGraviton1";
+            this.tbGraviton1.Size = new System.Drawing.Size(103, 45);
+            this.tbGraviton1.TabIndex = 5;
+            this.tbGraviton1.Scroll += new System.EventHandler(this.tbGraviton_Scroll);
+            // 
+            // tbGraviton2
+            // 
+            this.tbGraviton2.Location = new System.Drawing.Point(340, 312);
+            this.tbGraviton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbGraviton2.Maximum = 100;
+            this.tbGraviton2.Name = "tbGraviton2";
+            this.tbGraviton2.Size = new System.Drawing.Size(103, 45);
+            this.tbGraviton2.TabIndex = 8;
+            this.tbGraviton2.Scroll += new System.EventHandler(this.tbGraviton2_Scroll);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(440, 312);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(13, 15);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(340, 293);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 15);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Сила 2 точки";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(700, 349);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tbGraviton2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblGraviton);
+            this.Controls.Add(this.tbGraviton1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDirection1);
             this.Controls.Add(this.lblDirection);
             this.Controls.Add(this.tbDirection);
             this.Controls.Add(this.picDisplay);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDirection)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbGraviton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbGraviton2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,5 +193,12 @@
         private TrackBar tbDirection;
         private Label lblDirection;
         private Label lblDirection1;
+        private Label label1;
+        private Label label2;
+        private Label lblGraviton;
+        private TrackBar tbGraviton1;
+        private TrackBar tbGraviton2;
+        private Label label3;
+        private Label label4;
     }
 }
