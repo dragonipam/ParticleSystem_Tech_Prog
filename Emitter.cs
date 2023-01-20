@@ -66,7 +66,6 @@ namespace ParticleSystem_KulakovDA_ISTb_21_1
         public void UpdateState()
         {
             int particlesToCreate = ParticlesPerTick;
-
             foreach (var particle in particles)
             {
                 if (particle.Life < 0)

@@ -95,11 +95,13 @@ namespace ParticleSystem_KulakovDA_ISTb_21_1
         private void tbGraviton_Scroll(object sender, EventArgs e)
         {
             point1.Power = tbGraviton1.Value;
+            lblGravitation1.Text = $"{tbGraviton1.Value}°";
         }
 
         private void tbGraviton2_Scroll(object sender, EventArgs e)
         {
             point2.Power = tbGraviton2.Value;
+            lblGravitation2.Text = $"{tbGraviton2.Value}°";
         }
     }
 }
