@@ -89,9 +89,8 @@ namespace ParticleSystem_KulakovDA_ISTb_21_1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
-        //lblGraviton
+
         private void tbGraviton_Scroll(object sender, EventArgs e)
         {
             point1.Power = tbGraviton1.Value;
@@ -102,6 +101,20 @@ namespace ParticleSystem_KulakovDA_ISTb_21_1
         {
             point2.Power = tbGraviton2.Value;
             lblGravitation2.Text = $"{tbGraviton2.Value}°";
+        }
+
+        private void Substrate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (substrateCheckBox.Checked)
+            {
+                point1.checkBoxSubstrateCheck = true;
+                point2.checkBoxSubstrateCheck = true;
+            }
+            else
+            {
+                point1.checkBoxSubstrateCheck = false;
+                point2.checkBoxSubstrateCheck = false;
+            }
         }
     }
 }
